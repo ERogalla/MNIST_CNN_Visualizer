@@ -5,10 +5,13 @@ import matplotlib.pyplot as plt
 from keras.datasets import mnist
 
 import time
-from session_state import get_state
+
+import SessionState
+
 
 
 def main():
+
     st.title('My App')
 
     val = st.number_input(label = "Selected Image", value = 0, min_value = 0, max_value = 100)
@@ -16,29 +19,33 @@ def main():
     trainX = loaddataset()
 
 
-
-    run = False 
-    i = 0
+    print("state is " + str(s.run))
 
     if st.button("start"):
-        run = True
+        s.run = True
+        print("started")
     if st.button("pause"):
-        run = False
+        s.run = False
+        print("paused")
 
-    while run:
-        loadnumber(trainX, i)
-        number.pyplot()
+    while s.run:
+        s.i += 1
         time.sleep(.5)
-        i += 1
+        loadnumber(trainX)
+        number.pyplot()
+        
+
+    loadnumber(trainX)
+    number.pyplot()
 
 @st.cache
 def loaddataset():
     (trainX, trainy), (testX, testy) = mnist.load_data()
     return trainX
 
-def loadnumber(trainX, i):
-    plt.show(300)
-    plt.imshow(trainX[i], cmap=plt.get_cmap('gray'))
+def loadnumber(trainX):
+    plt.show(block=False)
+    plt.imshow(trainX[s.i], cmap=plt.get_cmap('gray'))
 
 if __name__ == "__main__":
     main()
