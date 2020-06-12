@@ -1,0 +1,24 @@
+{
+  "name": "cnn-visualizer",
+  "version": "1.0.0",
+  "description": "This is a visualizer of a CNN during the training process on the MNIST dataset.",
+  "main": "index.js",
+  "dependencies": {
+    "create-react-app": "^3.4.1",
+    "npx": "^10.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ERogalla/MNIST_CNN_Visualizer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ERogalla/MNIST_CNN_Visualizer/issues"
+  },
+  "homepage": "https://github.com/ERogalla/MNIST_CNN_Visualizer#readme"
+}
